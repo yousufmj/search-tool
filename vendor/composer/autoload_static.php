@@ -343,6 +343,7 @@ class ComposerStaticInit1c7cf9b187d946d24e73a64b28d28832
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\Search_history' => __DIR__ . '/../..' . '/app/Search_history.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'App\\User_history' => __DIR__ . '/../..' . '/app/User_history.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
