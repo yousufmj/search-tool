@@ -13,17 +13,17 @@ class CreateBusinessCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('Business_categories', function (Blueprint $table) {
+        Schema::create('business_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('business_id');
             $table->foreign('business_id')
                 ->references('id')
-                ->on('Businesses')
+                ->on('businesses')
                 ->onDelete('cascade');
             $table->unsignedInteger('category_id');
             $table->foreign('category_id')
                 ->references('id')
-                ->on('Categories')
+                ->on('categories')
                 ->onDelete('cascade');
             $table->timestamps();
         });
@@ -37,6 +37,6 @@ class CreateBusinessCategoriesTable extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('Business_categories');
+        Schema::dropIfExists('business_categories');
     }
 }

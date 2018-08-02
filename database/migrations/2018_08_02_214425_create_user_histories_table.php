@@ -13,7 +13,7 @@ class CreateUserHistoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('User_histories', function (Blueprint $table) {
+        Schema::create('user_history', function (Blueprint $table) {
             $table->increments('id');
             $table->string('session_id');
             $table->string('search_term');
@@ -29,6 +29,6 @@ class CreateUserHistoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('User_histories');
+        Schema::dropIfExists('user_history');
     }
 }

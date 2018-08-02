@@ -13,25 +13,25 @@ class CreateBuisnessesTable extends Migration
      */
     public function up()
     {
-        Schema::create('Businesses', function (Blueprint $table) {
+        Schema::create('businesses', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->text('description');
-            $table->string("trip_advisor");
-            $table->string("location_quarter");
-            $table->string("address1");
-            $table->string("address2");
-            $table->string("town");
-            $table->string("postcode");
-            $table->decimal('long', 10, 7);
-            $table->decimal('lat', 10, 7);
-            $table->integer("telephone");
-            $table->string("website");
-            $table->string("email");
-            $table->string("facebook");
-            $table->string("instagram");
-            $table->string("twitter");
-            $table->string("youtube");
+            $table->text('description')->nullable();
+            $table->string("trip_advisor")->nullable();
+            $table->string("location_quarter")->nullable();
+            $table->string("address1")->nullable();
+            $table->string("address2")->nullable();
+            $table->string("town")->nullable();
+            $table->string("postcode")->nullable();
+            $table->decimal('long', 10, 7)->nullable();
+            $table->decimal('lat', 10, 7)->nullable();
+            $table->integer("telephone")->nullable();
+            $table->string("website")->nullable();
+            $table->string("email")->nullable();
+            $table->string("facebook")->nullable();
+            $table->string("instagram")->nullable();
+            $table->string("twitter")->nullable();
+            $table->string("youtube")->nullable();
             $table->timestamps();
         });
     }
@@ -43,6 +43,6 @@ class CreateBuisnessesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Businesses');
+        Schema::dropIfExists('businesses');
     }
 }

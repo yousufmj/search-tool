@@ -30,6 +30,6 @@ class CreateUsers extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('User_histories');
+        Schema::dropIfExists('users');
     }
 }

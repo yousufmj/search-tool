@@ -13,7 +13,7 @@ class CreateSearchHistoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('Search_histories', function (Blueprint $table) {
+        Schema::create('search_history', function (Blueprint $table) {
             $table->increments('id');
             $table->string('search_term');
             $table->integer('count');
@@ -28,6 +28,6 @@ class CreateSearchHistoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Search_histories');
+        Schema::dropIfExists('search_history');
     }
 }

@@ -13,12 +13,12 @@ class CreateOpeningHoursTable extends Migration
      */
     public function up()
     {
-        Schema::create('Opening_hours', function (Blueprint $table) {
+        Schema::create('opening_hours', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('business_id');
             $table->foreign('business_id')
                 ->references('id')
-                ->on('Businesses')
+                ->on('businesses')
                 ->onDelete('cascade');
             $table->string('monday');
             $table->string('tuesday');
@@ -27,7 +27,7 @@ class CreateOpeningHoursTable extends Migration
             $table->string('friday');
             $table->string('saturday');
             $table->string('sunday');
-            $table->string('bank_holiday');
+            $table->string('bank_holiday')->nullable();
             $table->timestamps();
         });
     }
@@ -39,6 +39,7 @@ class CreateOpeningHoursTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Opening_hours');
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('opening_hours');
     }
 }
