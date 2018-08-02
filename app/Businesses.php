@@ -4,9 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Buisnesses extends Model
+class Businesses extends Model
 {
     protected $fillable = [
+        "title",
+        "description",
         "trip_advisor",
         "location_quarter",
         "address1",
@@ -22,7 +24,5 @@ class Buisnesses extends Model
         "instagram",
         "twitter",
         "youtube",
-        "date_created",
-        "date_edited",
     ];
 }
