@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Business_times extends Model
 {
-    protected $fillable = ['business_id', 'category_id'];
+    protected $fillable = ['business_id', 'opening_id'];
 
     public function businesses()
     {
