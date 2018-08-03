@@ -24,5 +24,18 @@ class Business extends Model
         "instagram",
         "twitter",
         "youtube",
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday",
+        "sunday",
+        "bank_holiday",
     ];
+
+    public function categories()
+    {
+        $this->hasMany('\App\Categories');
+    }
 }

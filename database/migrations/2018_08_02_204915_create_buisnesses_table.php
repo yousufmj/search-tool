@@ -32,6 +32,14 @@ class CreateBuisnessesTable extends Migration
             $table->string("instagram")->nullable();
             $table->string("twitter")->nullable();
             $table->string("youtube")->nullable();
+            $table->string("monday")->nullable();
+            $table->string("tuesday")->nullable();
+            $table->string("wednesday")->nullable();
+            $table->string("thursday")->nullable();
+            $table->string("friday")->nullable();
+            $table->string("saturday")->nullable();
+            $table->string("sunday")->nullable();
+            $table->string("bank_holiday")->nullable();
             $table->timestamps();
         });
     }
