@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Businesses;
+use App\Business;
 use App\Http\Resources\Business as BusinessResource;
 use Illuminate\Http\Request;
 
@@ -15,9 +15,9 @@ class BusinessController extends Controller
      */
     public function index()
     {
-        $businesses = Businesses::paginate(20);
+        $business = Business::paginate(20);
 
-        return BusinessResource::collection($businesses);
+        return BusinessResource::collection($business);
 
     }
 
@@ -28,7 +28,7 @@ class BusinessController extends Controller
      */
     public function create(Request $request)
     {
-        $business = new Businesses;
+        $business = new Business;
 
         $business->title = $request->input('title');
 
@@ -45,7 +45,7 @@ class BusinessController extends Controller
      */
     public function show($id)
     {
-        $business = Businesses::findOrfail($id);
+        $business = Business::findOrfail($id);
 
         return new BusinessResource($business);
     }
@@ -59,7 +59,7 @@ class BusinessController extends Controller
      */
     public function edit($id, Request $request)
     {
-        $business = Businesses::findOrFail($id);
+        $business = Business::findOrFail($id);
 
         $business->title = $request->input('title');
 
@@ -76,7 +76,7 @@ class BusinessController extends Controller
      */
     public function destroy($id)
     {
-        $business = Businesses::findOrFail($id);
+        $business = Business::findOrFail($id);
 
         if ($business->delete()) {
             return new BusinessResource($business);
