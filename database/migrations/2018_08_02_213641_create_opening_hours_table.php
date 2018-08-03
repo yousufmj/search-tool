@@ -15,11 +15,6 @@ class CreateOpeningHoursTable extends Migration
     {
         Schema::create('opening_hours', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('business_id');
-            $table->foreign('business_id')
-                ->references('id')
-                ->on('businesses')
-                ->onDelete('cascade');
             $table->string('monday');
             $table->string('tuesday');
             $table->string('wednesday');
@@ -39,7 +34,6 @@ class CreateOpeningHoursTable extends Migration
      */
     public function down()
     {
-        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('opening_hours');
     }
 }

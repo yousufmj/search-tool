@@ -17,9 +17,4 @@ class Opening_hours extends Model
         'sunday',
         'bank_holiday',
     ];
-
-    public function business()
-    {
-        return $this->belongsTo('App\Businesses');
-    }
 }
