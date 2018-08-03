@@ -22,11 +22,25 @@ Route::prefix('business')->group(function () {
     //Get all
     Route::get('/', 'BusinessController@index');
     //Get 1
-    Route::get('/{id}', 'BusinessController@index');
+    Route::get('/{id}', 'BusinessController@show');
     //Create
     Route::post('/create', 'BusinessController@create');
     //Edit
     Route::put('/{id}', 'BusinessController@edit');
     //Delete
     Route::delete('/{id}', 'BusinessController@delete');
+});
+
+//Categories
+Route::prefix('categories')->group(function () {
+    //Get all
+    Route::get('/', 'categoriesController@index');
+    //Get 1
+    Route::get('/{id}', 'categoriesController@show');
+    //Create
+    Route::post('/create', 'categoriesController@create');
+    //Edit
+    Route::put('/{id}', 'categoriesController@edit');
+    //Delete
+    Route::delete('/{id}', 'categoriesController@delete');
 });
