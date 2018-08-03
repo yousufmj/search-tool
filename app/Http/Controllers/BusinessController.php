@@ -31,6 +31,22 @@ class BusinessController extends Controller
         $business = new Business;
 
         $business->title = $request->input('title');
+        $business->description = $request->input('description');
+        $business->trip_advisor = $request->input('trip_advisor');
+        $business->location_quarter = $request->input('location_quarter');
+        $business->address1 = $request->input('address1');
+        $business->address2 = $request->input('address2');
+        $business->town = $request->input('town');
+        $business->postcode = $request->input('postcode');
+        $business->longitude = $request->input('longitude');
+        $business->latitude = $request->input('latitude');
+        $business->telephone = $request->input('telephone');
+        $business->website = $request->input('website');
+        $business->email = $request->input('email');
+        $business->facebook = $request->input('facebook');
+        $business->instagram = $request->input('instagram');
+        $business->twitter = $request->input('twitter');
+        $business->youtube = $request->input('youtube');
 
         if ($business->save()) {
             return new BusinessResource($business);
@@ -61,7 +77,24 @@ class BusinessController extends Controller
     {
         $business = Business::findOrFail($id);
 
+        // Update rows
         $business->title = $request->input('title');
+        $business->description = $request->input('description');
+        $business->trip_advisor = $request->input('trip_advisor');
+        $business->location_quarter = $request->input('location_quarter');
+        $business->address1 = $request->input('address1');
+        $business->address2 = $request->input('address2');
+        $business->town = $request->input('town');
+        $business->postcode = $request->input('postcode');
+        $business->long = $request->input('long');
+        $business->lat = $request->input('lat');
+        $business->telephone = $request->input('telephone');
+        $business->website = $request->input('website');
+        $business->email = $request->input('email');
+        $business->facebook = $request->input('facebook');
+        $business->instagram = $request->input('instagram');
+        $business->twitter = $request->input('twitter');
+        $business->youtube = $request->input('youtube');
 
         if ($business->save()) {
             return new BusinessResource($business);
