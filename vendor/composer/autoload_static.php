@@ -403,8 +403,6 @@ class ComposerStaticInit1c7cf9b187d946d24e73a64b28d28832
 
     public static $classMap = array (
         'App\\Business' => __DIR__ . '/../..' . '/app/Business.php',
-        'App\\Business_categories' => __DIR__ . '/../..' . '/app/Business_categories.php',
-        'App\\Business_times' => __DIR__ . '/../..' . '/app/Business_times.php',
         'App\\Categories' => __DIR__ . '/../..' . '/app/Categories.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -426,7 +424,6 @@ class ComposerStaticInit1c7cf9b187d946d24e73a64b28d28832
         'App\\Http\\Resources\\Business' => __DIR__ . '/../..' . '/app/Http/Resources/Business.php',
         'App\\Http\\Resources\\Categories' => __DIR__ . '/../..' . '/app/Http/Resources/Categories.php',
         'App\\Http\\Resources\\OpeningHours' => __DIR__ . '/../..' . '/app/Http/Resources/OpeningHours.php',
-        'App\\Opening_hours' => __DIR__ . '/../..' . '/app/Opening_hours.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',

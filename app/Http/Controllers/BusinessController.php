@@ -38,8 +38,8 @@ class BusinessController extends Controller
         $business->address2 = $request->input('address2');
         $business->town = $request->input('town');
         $business->postcode = $request->input('postcode');
-        $business->longitude = $request->input('longitude');
-        $business->latitude = $request->input('latitude');
+        $business->long = $request->input('long');
+        $business->lat = $request->input('lat');
         $business->telephone = $request->input('telephone');
         $business->website = $request->input('website');
         $business->email = $request->input('email');
@@ -48,7 +48,10 @@ class BusinessController extends Controller
         $business->twitter = $request->input('twitter');
         $business->youtube = $request->input('youtube');
 
+        //insert relationship
+
         if ($business->save()) {
+            $business->categories()->attach(1);
             return new BusinessResource($business);
         }
     }
@@ -95,6 +98,8 @@ class BusinessController extends Controller
         $business->instagram = $request->input('instagram');
         $business->twitter = $request->input('twitter');
         $business->youtube = $request->input('youtube');
+
+        // update relationship data
 
         if ($business->save()) {
             return new BusinessResource($business);

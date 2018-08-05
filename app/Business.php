@@ -36,6 +36,6 @@ class Business extends Model
 
     public function categories()
     {
-        $this->hasMany('\App\Categories');
+        return $this->belongsToMany('\App\Categories', 'business_categories', 'business_id', 'category_id');
     }
 }
