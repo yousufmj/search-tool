@@ -14,6 +14,7 @@ class CreateBusinessCategoriesTable extends Migration
     public function up()
     {
         Schema::create('business_categories', function (Blueprint $table) {
+            $table->increments('id');
             $table->unsignedInteger('business_id');
             $table->foreign('business_id')
                 ->references('id')
