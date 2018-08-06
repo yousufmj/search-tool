@@ -15,7 +15,7 @@ class BusinessController extends Controller
      */
     public function index()
     {
-        $business = Business::with('categories')->paginate(20);
+        $business = Business::search('test')->paginate(20)->load('categories');
 
         return BusinessResource::collection($business);
 
