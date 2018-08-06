@@ -15,12 +15,11 @@ class BusinessController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->has('query')) {
-            $business = Business::search($request->get('query'))->paginate(20);
-            $business->load('categories');
+        $query = $request->has('query') ? $request->get('query') : '';
+        $business = Business::search($query)->paginate(20);
+        $business->load('categories');
 
-            return BusinessResource::collection($business);
-        }
+        return BusinessResource::collection($business);
 
     }
 
