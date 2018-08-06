@@ -15,7 +15,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $Categories = Categories::all();
+        $Categories = Categories::paginate(20);
 
         return categoriesResource::collection($Categories);
 
