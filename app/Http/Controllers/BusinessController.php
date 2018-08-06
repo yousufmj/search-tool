@@ -15,7 +15,7 @@ class BusinessController extends Controller
      */
     public function index()
     {
-        $business = Business::paginate(20);
+        $business = Business::with('categories')->paginate(20);
 
         return BusinessResource::collection($business);
 
@@ -30,6 +30,7 @@ class BusinessController extends Controller
     {
         $business = new Business;
 
+        // declare fields for input
         $business->title = $request->input('title');
         $business->description = $request->input('description');
         $business->trip_advisor = $request->input('trip_advisor');
@@ -48,10 +49,14 @@ class BusinessController extends Controller
         $business->twitter = $request->input('twitter');
         $business->youtube = $request->input('youtube');
 
-        //insert relationship
-
         if ($business->save()) {
-            $business->categories()->attach(1);
+
+            //Loop Categories and attach to pivot table
+            $categories = $request->input('categories');
+            foreach ($categories as $category) {
+                $business->categories()->attach($category);
+            }
+
             return new BusinessResource($business);
         }
     }

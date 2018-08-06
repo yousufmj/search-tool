@@ -25,7 +25,7 @@ class CreateBusinessesTable extends Migration
             $table->string("postcode")->nullable();
             $table->decimal('long', 10, 7)->nullable();
             $table->decimal('lat', 10, 7)->nullable();
-            $table->integer("telephone")->nullable();
+            $table->string("telephone")->nullable();
             $table->string("website")->nullable();
             $table->string("email")->nullable();
             $table->string("facebook")->nullable();
