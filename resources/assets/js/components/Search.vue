@@ -1,31 +1,36 @@
 <template>
-    <div>
-        <h2>Search Tool </h2>
+    <div class="md-layout md-alignment-center">
+        <div class="md-layout-item md-size-60">
+          <h2>Search Tool </h2>
+            <div v-for="business in businesses" v-bind:key="business.id">
+              <div class="card-expansion">
+                <md-card >
+                    <md-card-header>
+                        <div class="md-title">{{ business.title }}</div>
+                    </md-card-header>
 
-        <md-card>
-            <md-card-header>
-                <div class="md-title">Title goes here</div>
-                <div class="md-subhead">Subtitle here</div>
-            </md-card-header>
+                    <md-card-expand>
+                        <md-card-actions md-alignment="space-between">
+                            <div>
+                                <md-button>Action</md-button>
+                            </div>
 
-            <md-card-expand>
-                <md-card-actions md-alignment="space-between">
-                    <div>
-                        <md-button>Action</md-button>
-                    </div>
+                            <md-card-expand-trigger>
+                                <md-button>Learn more</md-button>
+                            </md-card-expand-trigger>
+                        </md-card-actions>
 
-                    <md-card-expand-trigger>
-                        <md-button>Learn more</md-button>
-                    </md-card-expand-trigger>
-                </md-card-actions>
-
-                <md-card-expand-content>
-                    <md-card-content>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.
-                    </md-card-content>
-                </md-card-expand-content>
-            </md-card-expand>
-        </md-card>
+                        <md-card-expand-content>
+                            <md-card-content>
+                                {{ business.description }}
+                            </md-card-content>
+                        </md-card-expand-content>
+                    </md-card-expand>
+                </md-card>
+                <br>
+              </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -38,7 +43,7 @@ export default {
       business: {
         id: '',
         title: '',
-        body: ''
+        description: ''
       },
       pagination: {}
     };
@@ -61,7 +66,8 @@ export default {
         }
       })
         .then(response => {
-          this.businesses = response.data;
+          this.businesses = response.data.data;
+
         })
         .catch(error => {
           console.log(error.response.data);

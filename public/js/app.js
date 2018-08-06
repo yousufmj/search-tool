@@ -47921,6 +47921,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -47930,7 +47935,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       business: {
         id: '',
         title: '',
-        body: ''
+        description: ''
       },
       pagination: {}
     };
@@ -47953,7 +47958,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           Authorization: auth
         }
       }).then(function (response) {
-        _this.businesses = response.data;
+        _this.businesses = response.data.data;
       }).catch(function (error) {
         console.log(error.response.data);
       });
@@ -47969,58 +47974,76 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("h2", [_vm._v("Search Tool ")]),
-      _vm._v(" "),
-      _c(
-        "md-card",
-        [
-          _c("md-card-header", [
-            _c("div", { staticClass: "md-title" }, [_vm._v("Title goes here")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "md-subhead" }, [_vm._v("Subtitle here")])
-          ]),
-          _vm._v(" "),
-          _c(
-            "md-card-expand",
-            [
-              _c(
-                "md-card-actions",
-                { attrs: { "md-alignment": "space-between" } },
-                [
-                  _c("div", [_c("md-button", [_vm._v("Action")])], 1),
-                  _vm._v(" "),
-                  _c(
-                    "md-card-expand-trigger",
-                    [_c("md-button", [_vm._v("Learn more")])],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "md-card-expand-content",
-                [
-                  _c("md-card-content", [
-                    _vm._v(
-                      "\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non, voluptas eius illo quas, saepe voluptate pariatur in deleniti minus sint. Excepturi.\n                "
+  return _c("div", { staticClass: "md-layout md-alignment-center" }, [
+    _c(
+      "div",
+      { staticClass: "md-layout-item md-size-60" },
+      [
+        _c("h2", [_vm._v("Search Tool ")]),
+        _vm._v(" "),
+        _vm._l(_vm.businesses, function(business) {
+          return _c("div", { key: business.id }, [
+            _c(
+              "div",
+              { staticClass: "card-expansion" },
+              [
+                _c(
+                  "md-card",
+                  [
+                    _c("md-card-header", [
+                      _c("div", { staticClass: "md-title" }, [
+                        _vm._v(_vm._s(business.title))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "md-card-expand",
+                      [
+                        _c(
+                          "md-card-actions",
+                          { attrs: { "md-alignment": "space-between" } },
+                          [
+                            _c("div", [_c("md-button", [_vm._v("Action")])], 1),
+                            _vm._v(" "),
+                            _c(
+                              "md-card-expand-trigger",
+                              [_c("md-button", [_vm._v("Learn more")])],
+                              1
+                            )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "md-card-expand-content",
+                          [
+                            _c("md-card-content", [
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(business.description) +
+                                  "\n                        "
+                              )
+                            ])
+                          ],
+                          1
+                        )
+                      ],
+                      1
                     )
-                  ])
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      )
-    ],
-    1
-  )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("br")
+              ],
+              1
+            )
+          ])
+        })
+      ],
+      2
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
