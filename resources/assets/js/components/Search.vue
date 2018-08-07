@@ -28,31 +28,8 @@
 
           <p><strong>Total ({{ state.meta.total }})</strong></p>
 
+          <business-card v-bind:businessList="state.businesses"></business-card>
 
-            <div v-for="business in state.businesses" v-bind:key="business.id">
-              <div class="card-expansion">
-                <md-card >
-                    <md-card-header>
-                        <div class="md-title">{{ business.title }}</div>
-                    </md-card-header>
-
-                    <md-card-expand>
-                        <md-card-actions md-alignment="space-between">
-                            <md-card-expand-trigger>
-                                <md-button>More Info</md-button>
-                            </md-card-expand-trigger>
-                        </md-card-actions>
-
-                        <md-card-expand-content>
-                            <md-card-content v-html="business.description">
-                                {{ business.description }}
-                            </md-card-content>
-                        </md-card-expand-content>
-                    </md-card-expand>
-                </md-card>
-                <br>
-              </div>
-            </div>
 
             <!-- Pagination -->
           <ul class="pagination">
@@ -75,7 +52,7 @@
 
 <style lang="scss" scoped>
 .md-input {
-    border-bottom: 1px solid #D5D5D5;
+  border-bottom: 1px solid #d5d5d5;
 }
 .pagination {
   list-style: none;
@@ -85,12 +62,12 @@
 
   li {
     display: inline-block;
-    border: 1px solid #D5D5D5;
+    border: 1px solid #d5d5d5;
     box-sizing: border-box;
     margin-left: -1px;
 
     a {
-      padding: .5rem .75rem;
+      padding: 0.5rem 0.75rem;
       text-decoration: none;
       position: relative;
       display: block;
@@ -103,16 +80,16 @@
     cursor: default;
     text-decoration: none;
 
-      a {
-        color: #eee;
-      }
+    a {
+      color: #eee;
+    }
   }
   .active {
-    background:rgb(38, 105, 206);
+    background: rgb(38, 105, 206);
 
     a {
-        color: #eee;
-      }
+      color: #eee;
+    }
   }
   .info {
     display: inline-block;
@@ -127,7 +104,11 @@ label {
 
 <script>
 import axios from 'axios';
+import BusinessCard from './BusinessCard.vue';
 export default {
+  components: {
+    'business-card': BusinessCard
+  },
   data() {
     return {
       state: {
@@ -144,7 +125,6 @@ export default {
   },
 
   methods: {
-
     /**
      * get all businesses with filters and search
      * @param {string} url - url endpoint
@@ -152,10 +132,10 @@ export default {
      */
     fetchBusiness(url, params) {
       url = url || 'api/business';
-      if(!params) params = {};
+      if (!params) params = {};
 
       // declare search params
-      params.query = this.state.businessTitle
+      params.query = this.state.businessTitle;
 
       //This is bad. auth sould not be hardcoded into code
       const auth =
