@@ -78677,6 +78677,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       state: {
         businesses: [],
         businessTitle: '',
+        categories: [],
         pagination: {},
         meta: {}
       }
@@ -78719,7 +78720,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         _this.state.pagination = response.data.links;
         _this.state.meta = response.data.meta;
       }).catch(function (error) {
-        console.log(error.response.data);
+        console.log(error.response);
       });
     }
   }
@@ -78948,10 +78949,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['businessList'],
-
+  mounted: function mounted() {},
   data: function data() {
     return {
       state: {
@@ -85375,7 +85388,7 @@ exports = module.exports = __webpack_require__(13)(false);
 
 
 // module
-exports.push([module.i, "\n.opening[data-v-2317e8a7] {\n  font-size: 10px;\n}\n", ""]);
+exports.push([module.i, "\n.opening[data-v-2317e8a7] {\n  font-size: 10px;\n}\n.category + .category[data-v-2317e8a7]:before {\n  content: \", \";\n}\n", ""]);
 
 // exports
 
@@ -85411,7 +85424,25 @@ var render = function() {
                   _c("md-card-header", [
                     _c("div", { staticClass: "md-title" }, [
                       _vm._v(_vm._s(business.title))
-                    ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "md-subhead" },
+                      _vm._l(business.categories, function(category) {
+                        return _c(
+                          "span",
+                          { key: category, staticClass: "category" },
+                          [
+                            _vm._v(
+                              "\n                " +
+                                _vm._s(category) +
+                                "\n              "
+                            )
+                          ]
+                        )
+                      })
+                    )
                   ]),
                   _vm._v(" "),
                   _c(

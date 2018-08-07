@@ -6,6 +6,15 @@
         <md-card >
           <md-card-header>
               <div class="md-title">{{ business.title }}</div>
+              <div class="md-subhead" >
+                <span
+                  class="category"
+                  v-for="(category) in business.categories"
+                  v-bind:key="category"
+                >
+                  {{ category }}
+                </span>
+                </div>
           </md-card-header>
 
           <md-card-expand>
@@ -161,12 +170,18 @@
 .opening {
   font-size: 10px;
 }
+.category + .category:before {
+  content: ", ";
+}
 </style>
 
 
 <script>
 export default {
   props: ['businessList'],
+  mounted(){
+
+  },
 
   data() {
     return {

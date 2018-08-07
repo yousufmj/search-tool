@@ -114,6 +114,7 @@ export default {
       state: {
         businesses: [],
         businessTitle: '',
+        categories: [],
         pagination: {},
         meta: {}
       }
@@ -157,7 +158,7 @@ export default {
           this.state.meta = response.data.meta;
         })
         .catch(error => {
-          console.log(error.response.data);
+          console.log(error.response);
         });
     }
   }
