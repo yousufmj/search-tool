@@ -3,41 +3,26 @@
         <div class="md-layout-item md-size-60">
           <h2>Search Tool </h2>
 
-          <!-- Autocomplete search -->
-            <md-autocomplete
-              @md-changed="getBusinessList"
-              @md-opened="getBusinessList"
-              v-model="selectedBusiness"
-              :md-options="businessAutocomplete"
-              md-layout="box"
-              md-dense
-              md-term
-              :md-open-on-focus="false">
-              <template slot="md-autocomplete-empty" slot-scope="{ term }">
-                No Business matching "{{ term }}" were found
-              </template>
-              <template slot="md-autocomplete-item" slot-scope="{ item, term }">
-                current term "{{ term }}"
-              </template>
+          <!-- Search Box -->
+            <md-field>
               <label>Search Business</label>
-
-            </md-autocomplete>
-
+              <md-input v-model="state.titleSearch"></md-input>
+            </md-field>
           <!-- Pagination -->
-            <ul class="pagination margin-top margin-bottom">
-              <li v-bind:class="[{disabled: !pagination.prev}]">
-                <a href="#" @click="fetchBusiness(pagination.prev)">Prev</a>
-              </li>
-              <li class="info">
-                  {{ meta.current_page }} of {{ meta.last_page }}
-              </li>
-              <li v-bind:class="[{disabled: !pagination.next}]">
-                <a href="#" @click="fetchBusiness(pagination.next)">Next</a>
-              </li>
-            </ul>
+          <ul class="pagination">
+            <li v-bind:class="[{disabled: !state.pagination.prev}]">
+              <a href="#" @click="fetchBusiness(state.pagination.prev)">Prev</a>
+            </li>
+            <li class="info">
+                {{ state.meta.current_page }} of {{ state.meta.last_page }}
+            </li>
+            <li v-bind:class="[{disabled: !state.pagination.next}]">
+              <a href="#" @click="fetchBusiness(state.pagination.next)">Next</a>
+            </li>
+          </ul>
 
 
-            <div v-for="business in businesses" v-bind:key="business.id">
+            <div v-for="business in state.businesses" v-bind:key="business.id">
               <div class="card-expansion">
                 <md-card >
                     <md-card-header>
@@ -67,19 +52,8 @@
 </template>
 
 <style lang="scss" scoped>
-.margin-top {
-  margin-top: 250px !important;
-}
-.margin-bottom {
-  margin-bottom: 20px !important;
-}
-.md-menu-content {
-  z-index: 1000;
-  background: red;
-}
-.md-list {
-  z-index: 1000;
-  background: red;
+.md-input {
+    border-bottom: 1px solid #D5D5D5;
 }
 .pagination {
   list-style: none;
@@ -134,11 +108,12 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      businesses: [],
-      businessAutocomplete: [],
-      selectedBusiness: null,
-      pagination: {},
-      meta: {}
+      state: {
+        businesses: [],
+        titleSearch: null,
+        pagination: {},
+        meta: {}
+      }
     };
   },
 
@@ -164,39 +139,13 @@ export default {
         }
       })
         .then(response => {
-          this.businesses = response.data.data;
-          this.pagination = response.data.links;
-          this.meta = response.data.meta;
+          this.state.businesses = response.data.data;
+          this.state.pagination = response.data.links;
+          this.state.meta = response.data.meta;
         })
         .catch(error => {
           console.log(error.response.data);
         });
-    },
-
-    getBusinessList(item) {
-       // Get full autocomplete list
-             const auth =
-        'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJmMjEzMDBlZmQxNDhkZTZmM2E4MjI4MGIwMGJiNjE5Nzk1ZjU0NWVlM2RjMGJjY2JhMTE5M2FjZjk0YmU5YzgwYTg2MjVmYjJmOWI2NTlhIn0.eyJhdWQiOiIyIiwianRpIjoiMmYyMTMwMGVmZDE0OGRlNmYzYTgyMjgwYjAwYmI2MTk3OTVmNTQ1ZWUzZGMwYmNjYmExMTkzYWNmOTRiZTljODBhODYyNWZiMmY5YjY1OWEiLCJpYXQiOjE1MzM1MTAxNTUsIm5iZiI6MTUzMzUxMDE1NSwiZXhwIjoxNTY1MDQ2MTU1LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.GZIQyIZ_1wGzn6lPxjb8mdqbiCaosKkbUB7ksaeYXJGLwiuoejMGW9VjMfkKY2FOu8luCKCDd_nkSAvneuH8cgzpwJRMIUeG4ELiDfK8Ag18qcqL3OYntN8lW0nb7Rb7GZMoKorTUjIkZwiKigumkYrru0ZaSIi9IGh4Pv2pMmedTCxMi4eSp0tv-_dAGYAzg-erf5Rb7n7QKqxQsMOrUj_HQmCYVixCe45NkgfGfVn_nk11cNskRq60-SfF_XjDerM0x5SaYD2fWABX0ReR9YMvFd7ly_JdDrsGINPbPTKzXNTWrX8IxE8zEBN66pkDKBH9ZsRKC_7V4wm4XC0U3O1e-fbiVglP8YOX1EUfis15PigMsdCFmZMEnFKKyT-sYX1h3XL-8bDY99MzySXuNGi46Tz3wrSFXjqnn7lmJLwVuN0AmaxaFKRRP1rgqFSx1OLpJCPYOEcRYo7EU7w70FIstww5PJjxkMgolsgjzQi_30EgkqUsYNn0fuewCJCa7K-9O05xAOwwW57JWM-LJJGVdKqE3NfDRyD7Dmbo-8ZX3sGSchBQVOQIjbqKmarDZvPFOixTg0QQ0NvBVC_43C2ymHtaaRscv-3Eu4CHWeuj6ZMRfsYQKtYBozKuUhU8vwrzdyKqg1ie4wlGJpFLHss3hxk5nBDlsCqFzr5KSEk';
-      axios({
-        method: 'GET',
-        url: 'api/business',
-        params: {
-          query: '',
-          perPage: 20000
-        },
-        headers: {
-          Accept: 'application/json',
-          Authorization: auth
-        }
-      })
-        .then(response => {
-          const business = response.data.data
-          this.businessAutocomplete = business.map(item => item.title);
-        })
-        .catch(error => {
-          console.log(error.response.data);
-        });
-
     }
   }
 };

@@ -47999,42 +47999,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      businesses: [],
-      businessAutocomplete: [],
-      selectedBusiness: null,
-      pagination: {},
-      meta: {}
+      state: {
+        businesses: [],
+        titleSearch: null,
+        pagination: {},
+        meta: {}
+      }
     };
   },
   created: function created() {
@@ -48060,34 +48035,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           Authorization: auth
         }
       }).then(function (response) {
-        _this.businesses = response.data.data;
-        _this.pagination = response.data.links;
-        _this.meta = response.data.meta;
-      }).catch(function (error) {
-        console.log(error.response.data);
-      });
-    },
-    getBusinessList: function getBusinessList(item) {
-      var _this2 = this;
-
-      // Get full autocomplete list
-      var auth = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJmMjEzMDBlZmQxNDhkZTZmM2E4MjI4MGIwMGJiNjE5Nzk1ZjU0NWVlM2RjMGJjY2JhMTE5M2FjZjk0YmU5YzgwYTg2MjVmYjJmOWI2NTlhIn0.eyJhdWQiOiIyIiwianRpIjoiMmYyMTMwMGVmZDE0OGRlNmYzYTgyMjgwYjAwYmI2MTk3OTVmNTQ1ZWUzZGMwYmNjYmExMTkzYWNmOTRiZTljODBhODYyNWZiMmY5YjY1OWEiLCJpYXQiOjE1MzM1MTAxNTUsIm5iZiI6MTUzMzUxMDE1NSwiZXhwIjoxNTY1MDQ2MTU1LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.GZIQyIZ_1wGzn6lPxjb8mdqbiCaosKkbUB7ksaeYXJGLwiuoejMGW9VjMfkKY2FOu8luCKCDd_nkSAvneuH8cgzpwJRMIUeG4ELiDfK8Ag18qcqL3OYntN8lW0nb7Rb7GZMoKorTUjIkZwiKigumkYrru0ZaSIi9IGh4Pv2pMmedTCxMi4eSp0tv-_dAGYAzg-erf5Rb7n7QKqxQsMOrUj_HQmCYVixCe45NkgfGfVn_nk11cNskRq60-SfF_XjDerM0x5SaYD2fWABX0ReR9YMvFd7ly_JdDrsGINPbPTKzXNTWrX8IxE8zEBN66pkDKBH9ZsRKC_7V4wm4XC0U3O1e-fbiVglP8YOX1EUfis15PigMsdCFmZMEnFKKyT-sYX1h3XL-8bDY99MzySXuNGi46Tz3wrSFXjqnn7lmJLwVuN0AmaxaFKRRP1rgqFSx1OLpJCPYOEcRYo7EU7w70FIstww5PJjxkMgolsgjzQi_30EgkqUsYNn0fuewCJCa7K-9O05xAOwwW57JWM-LJJGVdKqE3NfDRyD7Dmbo-8ZX3sGSchBQVOQIjbqKmarDZvPFOixTg0QQ0NvBVC_43C2ymHtaaRscv-3Eu4CHWeuj6ZMRfsYQKtYBozKuUhU8vwrzdyKqg1ie4wlGJpFLHss3hxk5nBDlsCqFzr5KSEk';
-      __WEBPACK_IMPORTED_MODULE_0_axios___default()({
-        method: 'GET',
-        url: 'api/business',
-        params: {
-          query: '',
-          perPage: 20000
-        },
-        headers: {
-          Accept: 'application/json',
-          Authorization: auth
-        }
-      }).then(function (response) {
-        var business = response.data.data;
-        _this2.businessAutocomplete = business.map(function (item) {
-          return item.title;
-        });
+        _this.state.businesses = response.data.data;
+        _this.state.pagination = response.data.links;
+        _this.state.meta = response.data.meta;
       }).catch(function (error) {
         console.log(error.response.data);
       });
@@ -78486,7 +78436,7 @@ exports = module.exports = __webpack_require__(44)(false);
 
 
 // module
-exports.push([module.i, "\n.margin-top[data-v-7cdae69f] {\n  margin-top: 250px !important;\n}\n.margin-bottom[data-v-7cdae69f] {\n  margin-bottom: 20px !important;\n}\n.md-menu-content[data-v-7cdae69f] {\n  z-index: 1000;\n  background: red;\n}\n.md-list[data-v-7cdae69f] {\n  z-index: 1000;\n  background: red;\n}\n.pagination[data-v-7cdae69f] {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n  text-align: center;\n}\n.pagination li[data-v-7cdae69f] {\n    display: inline-block;\n    border: 1px solid #D5D5D5;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    margin-left: -1px;\n}\n.pagination li a[data-v-7cdae69f] {\n      padding: .5rem .75rem;\n      text-decoration: none;\n      position: relative;\n      display: block;\n      color: #0f1947;\n}\n.pagination .disabled[data-v-7cdae69f] {\n    background: #9b9b9b;\n    pointer-events: none;\n    cursor: default;\n    text-decoration: none;\n}\n.pagination .disabled a[data-v-7cdae69f] {\n      color: #eee;\n}\n.pagination .active[data-v-7cdae69f] {\n    background: #2669ce;\n}\n.pagination .active a[data-v-7cdae69f] {\n      color: #eee;\n}\n.pagination .info[data-v-7cdae69f] {\n    display: inline-block;\n    border: none !important;\n}\nlabel[data-v-7cdae69f] {\n  color: #a2a2a2;\n}\n", ""]);
+exports.push([module.i, "\n.md-input[data-v-7cdae69f] {\n  border-bottom: 1px solid #D5D5D5;\n}\n.pagination[data-v-7cdae69f] {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n  text-align: center;\n}\n.pagination li[data-v-7cdae69f] {\n    display: inline-block;\n    border: 1px solid #D5D5D5;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    margin-left: -1px;\n}\n.pagination li a[data-v-7cdae69f] {\n      padding: .5rem .75rem;\n      text-decoration: none;\n      position: relative;\n      display: block;\n      color: #0f1947;\n}\n.pagination .disabled[data-v-7cdae69f] {\n    background: #9b9b9b;\n    pointer-events: none;\n    cursor: default;\n    text-decoration: none;\n}\n.pagination .disabled a[data-v-7cdae69f] {\n      color: #eee;\n}\n.pagination .active[data-v-7cdae69f] {\n    background: #2669ce;\n}\n.pagination .active a[data-v-7cdae69f] {\n      color: #eee;\n}\n.pagination .info[data-v-7cdae69f] {\n    display: inline-block;\n    border: none !important;\n}\nlabel[data-v-7cdae69f] {\n  color: #a2a2a2;\n}\n", ""]);
 
 // exports
 
@@ -78768,68 +78718,32 @@ var render = function() {
         _c("h2", [_vm._v("Search Tool ")]),
         _vm._v(" "),
         _c(
-          "md-autocomplete",
-          {
-            attrs: {
-              "md-options": _vm.businessAutocomplete,
-              "md-layout": "box",
-              "md-dense": "",
-              "md-term": "",
-              "md-open-on-focus": false
-            },
-            on: {
-              "md-changed": _vm.getBusinessList,
-              "md-opened": _vm.getBusinessList
-            },
-            scopedSlots: _vm._u([
-              {
-                key: "md-autocomplete-empty",
-                fn: function(ref) {
-                  var term = ref.term
-                  return [
-                    _vm._v(
-                      '\n            No Business matching "' +
-                        _vm._s(term) +
-                        '" were found\n          '
-                    )
-                  ]
-                }
-              },
-              {
-                key: "md-autocomplete-item",
-                fn: function(ref) {
-                  var item = ref.item
-                  var term = ref.term
-                  return [
-                    _vm._v(
-                      '\n            current term "' +
-                        _vm._s(term) +
-                        '"\n          '
-                    )
-                  ]
-                }
+          "md-field",
+          [
+            _c("label", [_vm._v("Search Business")]),
+            _vm._v(" "),
+            _c("md-input", {
+              model: {
+                value: _vm.state.titleSearch,
+                callback: function($$v) {
+                  _vm.$set(_vm.state, "titleSearch", $$v)
+                },
+                expression: "state.titleSearch"
               }
-            ]),
-            model: {
-              value: _vm.selectedBusiness,
-              callback: function($$v) {
-                _vm.selectedBusiness = $$v
-              },
-              expression: "selectedBusiness"
-            }
-          },
-          [_c("label", [_vm._v("Search Business")])]
+            })
+          ],
+          1
         ),
         _vm._v(" "),
-        _c("ul", { staticClass: "pagination margin-top margin-bottom" }, [
-          _c("li", { class: [{ disabled: !_vm.pagination.prev }] }, [
+        _c("ul", { staticClass: "pagination" }, [
+          _c("li", { class: [{ disabled: !_vm.state.pagination.prev }] }, [
             _c(
               "a",
               {
                 attrs: { href: "#" },
                 on: {
                   click: function($event) {
-                    _vm.fetchBusiness(_vm.pagination.prev)
+                    _vm.fetchBusiness(_vm.state.pagination.prev)
                   }
                 }
               },
@@ -78839,22 +78753,22 @@ var render = function() {
           _vm._v(" "),
           _c("li", { staticClass: "info" }, [
             _vm._v(
-              "\n              " +
-                _vm._s(_vm.meta.current_page) +
+              "\n            " +
+                _vm._s(_vm.state.meta.current_page) +
                 " of " +
-                _vm._s(_vm.meta.last_page) +
-                "\n          "
+                _vm._s(_vm.state.meta.last_page) +
+                "\n        "
             )
           ]),
           _vm._v(" "),
-          _c("li", { class: [{ disabled: !_vm.pagination.next }] }, [
+          _c("li", { class: [{ disabled: !_vm.state.pagination.next }] }, [
             _c(
               "a",
               {
                 attrs: { href: "#" },
                 on: {
                   click: function($event) {
-                    _vm.fetchBusiness(_vm.pagination.next)
+                    _vm.fetchBusiness(_vm.state.pagination.next)
                   }
                 }
               },
@@ -78863,7 +78777,7 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _vm._l(_vm.businesses, function(business) {
+        _vm._l(_vm.state.businesses, function(business) {
           return _c("div", { key: business.id }, [
             _c(
               "div",
