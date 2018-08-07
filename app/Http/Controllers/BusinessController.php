@@ -16,7 +16,9 @@ class BusinessController extends Controller
     public function index(Request $request)
     {
         $query = $request->has('query') ? $request->get('query') : '';
-        $business = Business::search($query)->paginate(20);
+        $perPage = $request->has('perPage') ? $request->get('perPage') : 20;
+
+        $business = Business::search($query)->paginate($perPage);
         $business->load('categories');
 
         return BusinessResource::collection($business);
