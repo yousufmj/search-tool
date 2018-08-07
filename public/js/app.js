@@ -47999,6 +47999,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -48006,7 +48028,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       state: {
         businesses: [],
-        titleSearch: null,
+        businessTitle: '',
         pagination: {},
         meta: {}
       }
@@ -48018,18 +48040,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
   methods: {
-    fetchBusiness: function fetchBusiness(url) {
+
+    /**
+     * get all businesses with filters and search
+     * @param {string} url - url endpoint
+     * @param {object} params - object containing search parameters
+     */
+    fetchBusiness: function fetchBusiness(url, params) {
       var _this = this;
 
       url = url || 'api/business';
-      console.log(url);
+      if (!params) params = {};
 
+      // declare search params
+      params.query = this.state.businessTitle;
+
+      //This is bad. auth sould not be hardcoded into code
       var auth = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJmMjEzMDBlZmQxNDhkZTZmM2E4MjI4MGIwMGJiNjE5Nzk1ZjU0NWVlM2RjMGJjY2JhMTE5M2FjZjk0YmU5YzgwYTg2MjVmYjJmOWI2NTlhIn0.eyJhdWQiOiIyIiwianRpIjoiMmYyMTMwMGVmZDE0OGRlNmYzYTgyMjgwYjAwYmI2MTk3OTVmNTQ1ZWUzZGMwYmNjYmExMTkzYWNmOTRiZTljODBhODYyNWZiMmY5YjY1OWEiLCJpYXQiOjE1MzM1MTAxNTUsIm5iZiI6MTUzMzUxMDE1NSwiZXhwIjoxNTY1MDQ2MTU1LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.GZIQyIZ_1wGzn6lPxjb8mdqbiCaosKkbUB7ksaeYXJGLwiuoejMGW9VjMfkKY2FOu8luCKCDd_nkSAvneuH8cgzpwJRMIUeG4ELiDfK8Ag18qcqL3OYntN8lW0nb7Rb7GZMoKorTUjIkZwiKigumkYrru0ZaSIi9IGh4Pv2pMmedTCxMi4eSp0tv-_dAGYAzg-erf5Rb7n7QKqxQsMOrUj_HQmCYVixCe45NkgfGfVn_nk11cNskRq60-SfF_XjDerM0x5SaYD2fWABX0ReR9YMvFd7ly_JdDrsGINPbPTKzXNTWrX8IxE8zEBN66pkDKBH9ZsRKC_7V4wm4XC0U3O1e-fbiVglP8YOX1EUfis15PigMsdCFmZMEnFKKyT-sYX1h3XL-8bDY99MzySXuNGi46Tz3wrSFXjqnn7lmJLwVuN0AmaxaFKRRP1rgqFSx1OLpJCPYOEcRYo7EU7w70FIstww5PJjxkMgolsgjzQi_30EgkqUsYNn0fuewCJCa7K-9O05xAOwwW57JWM-LJJGVdKqE3NfDRyD7Dmbo-8ZX3sGSchBQVOQIjbqKmarDZvPFOixTg0QQ0NvBVC_43C2ymHtaaRscv-3Eu4CHWeuj6ZMRfsYQKtYBozKuUhU8vwrzdyKqg1ie4wlGJpFLHss3hxk5nBDlsCqFzr5KSEk';
 
       // Get paginated results
       __WEBPACK_IMPORTED_MODULE_0_axios___default()({
         method: 'GET',
         url: url,
+        params: params,
         headers: {
           Accept: 'application/json',
           Authorization: auth
@@ -78723,12 +78756,17 @@ var render = function() {
             _c("label", [_vm._v("Search Business")]),
             _vm._v(" "),
             _c("md-input", {
+              on: {
+                input: function($event) {
+                  _vm.fetchBusiness()
+                }
+              },
               model: {
-                value: _vm.state.titleSearch,
+                value: _vm.state.businessTitle,
                 callback: function($$v) {
-                  _vm.$set(_vm.state, "titleSearch", $$v)
+                  _vm.$set(_vm.state, "businessTitle", $$v)
                 },
-                expression: "state.titleSearch"
+                expression: "state.businessTitle"
               }
             })
           ],
@@ -78774,7 +78812,13 @@ var render = function() {
               },
               [_vm._v("Next")]
             )
-          ])
+          ]),
+          _vm._v(" "),
+          _c("li")
+        ]),
+        _vm._v(" "),
+        _c("p", [
+          _c("strong", [_vm._v("Total (" + _vm._s(_vm.state.meta.total) + ")")])
         ]),
         _vm._v(" "),
         _vm._l(_vm.state.businesses, function(business) {
@@ -78801,7 +78845,7 @@ var render = function() {
                           [
                             _c(
                               "md-card-expand-trigger",
-                              [_c("md-button", [_vm._v("Learn more")])],
+                              [_c("md-button", [_vm._v("More Info")])],
                               1
                             )
                           ],
@@ -78811,13 +78855,21 @@ var render = function() {
                         _c(
                           "md-card-expand-content",
                           [
-                            _c("md-card-content", [
-                              _vm._v(
-                                "\n                            " +
-                                  _vm._s(business.description) +
-                                  "\n                        "
-                              )
-                            ])
+                            _c(
+                              "md-card-content",
+                              {
+                                domProps: {
+                                  innerHTML: _vm._s(business.description)
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(business.description) +
+                                    "\n                        "
+                                )
+                              ]
+                            )
                           ],
                           1
                         )
@@ -78833,7 +78885,51 @@ var render = function() {
               1
             )
           ])
-        })
+        }),
+        _vm._v(" "),
+        _c("ul", { staticClass: "pagination" }, [
+          _c("li", { class: [{ disabled: !_vm.state.pagination.prev }] }, [
+            _c(
+              "a",
+              {
+                attrs: { href: "#" },
+                on: {
+                  click: function($event) {
+                    _vm.fetchBusiness(_vm.state.pagination.prev)
+                  }
+                }
+              },
+              [_vm._v("Prev")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "info" }, [
+            _vm._v(
+              "\n            " +
+                _vm._s(_vm.state.meta.current_page) +
+                " of " +
+                _vm._s(_vm.state.meta.last_page) +
+                "\n        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { class: [{ disabled: !_vm.state.pagination.next }] }, [
+            _c(
+              "a",
+              {
+                attrs: { href: "#" },
+                on: {
+                  click: function($event) {
+                    _vm.fetchBusiness(_vm.state.pagination.next)
+                  }
+                }
+              },
+              [_vm._v("Next")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li")
+        ])
       ],
       2
     )
