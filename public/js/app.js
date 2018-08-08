@@ -84946,7 +84946,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       params.query = this.state.businessTitle;
 
       //This is bad. auth sould not be hardcoded into code
-      var auth = 'Bearer ' + env('TOKEN');
+      var auth = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImVhYTU5N2ViZjg0YzY2YjgzY2JjZjcxNDViYTQ0YWNmOGIyYmQwYmQzOTA3ZDY2MjAxMzYxMWE2MWJhYjk1MDk3ZmNmNDUxODllOTI1ODFhIn0.eyJhdWQiOiIyIiwianRpIjoiZWFhNTk3ZWJmODRjNjZiODNjYmNmNzE0NWJhNDRhY2Y4YjJiZDBiZDM5MDdkNjYyMDEzNjExYTYxYmFiOTUwOTdmY2Y0NTE4OWU5MjU4MWEiLCJpYXQiOjE1MzM2OTM4NjYsIm5iZiI6MTUzMzY5Mzg2NiwiZXhwIjoxNTY1MjI5ODY2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.Fc6OQhmyYl4Vpg1oP2EPyFy0NGwRntic4KV7ltdEJd6-uG5Tk_1j-oNg83SWNDbCwd4V1-tMGFmbnzVkOY9m_oiXw132qt4ilnCI99fHRexYFDlffY9utix5O2KKbQS5LHfNjFATplKJ5jEDc1yqWcJfqdx5hTwb45F1U8KvME066PZzLoNfK3ww7gcrbwfStIl5ACC_0r0WPuq6RRogrMGy1xw0NB6dft58MmaNQLjsec7mlGr5fMlp79EfuP_Xc3bqUI-S3eKmYvCB4_Z91_fNR0FxUCQOsZf3lnicGqoKAzWwWul7xaqIi3ANYjXrJr065PegzJAIBB2FpQkNiu9nYnmceFHl2tn2FTSDs7lNk7HQKBOAjle1h8gSvpTi2fsYAyB6GVl_7u6Ro7MIPXkTNCcUY1EOCXDSYHlGhP2bNewKATxKccEQJ0qjTN4gXC60Si9YGd6fMeLeYxWlVG0S-lwTM2djruiAq98m4CirbOoOk1vSiXDxEAnIgot2IhfpRIkBVFeDnPvQjSq6i3bBNpqz9X9cNJFzJyzXGT8DAKj3c05t7c1TUxeuPEMiJ1YcCtoo_Q6u26NolS7jg9tpomtAqu3sJocw4zMDSjjO7eh_Fqr6eRrkqTpEMhssmzkxeSQiTbGaXX5pprLF3wq7Ca61nLpD8XUNtrw_1FY';
 
       // Get paginated results
       __WEBPACK_IMPORTED_MODULE_0_axios___default()({
@@ -84971,7 +84971,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var url = 'api/categories';
 
       //This is bad. auth sould not be hardcoded into code
-      var auth = 'Bearer ' + env('TOKEN');
+      var auth = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImVhYTU5N2ViZjg0YzY2YjgzY2JjZjcxNDViYTQ0YWNmOGIyYmQwYmQzOTA3ZDY2MjAxMzYxMWE2MWJhYjk1MDk3ZmNmNDUxODllOTI1ODFhIn0.eyJhdWQiOiIyIiwianRpIjoiZWFhNTk3ZWJmODRjNjZiODNjYmNmNzE0NWJhNDRhY2Y4YjJiZDBiZDM5MDdkNjYyMDEzNjExYTYxYmFiOTUwOTdmY2Y0NTE4OWU5MjU4MWEiLCJpYXQiOjE1MzM2OTM4NjYsIm5iZiI6MTUzMzY5Mzg2NiwiZXhwIjoxNTY1MjI5ODY2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.Fc6OQhmyYl4Vpg1oP2EPyFy0NGwRntic4KV7ltdEJd6-uG5Tk_1j-oNg83SWNDbCwd4V1-tMGFmbnzVkOY9m_oiXw132qt4ilnCI99fHRexYFDlffY9utix5O2KKbQS5LHfNjFATplKJ5jEDc1yqWcJfqdx5hTwb45F1U8KvME066PZzLoNfK3ww7gcrbwfStIl5ACC_0r0WPuq6RRogrMGy1xw0NB6dft58MmaNQLjsec7mlGr5fMlp79EfuP_Xc3bqUI-S3eKmYvCB4_Z91_fNR0FxUCQOsZf3lnicGqoKAzWwWul7xaqIi3ANYjXrJr065PegzJAIBB2FpQkNiu9nYnmceFHl2tn2FTSDs7lNk7HQKBOAjle1h8gSvpTi2fsYAyB6GVl_7u6Ro7MIPXkTNCcUY1EOCXDSYHlGhP2bNewKATxKccEQJ0qjTN4gXC60Si9YGd6fMeLeYxWlVG0S-lwTM2djruiAq98m4CirbOoOk1vSiXDxEAnIgot2IhfpRIkBVFeDnPvQjSq6i3bBNpqz9X9cNJFzJyzXGT8DAKj3c05t7c1TUxeuPEMiJ1YcCtoo_Q6u26NolS7jg9tpomtAqu3sJocw4zMDSjjO7eh_Fqr6eRrkqTpEMhssmzkxeSQiTbGaXX5pprLF3wq7Ca61nLpD8XUNtrw_1FY';
 
       // Get paginated results
       __WEBPACK_IMPORTED_MODULE_0_axios___default()({
@@ -85093,6 +85093,18 @@ exports.push([module.i, "\n.opening[data-v-2317e8a7] {\n  font-size: 10px;\n}\n.
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -85522,10 +85534,39 @@ var render = function() {
                                         staticClass: "md-layout-item md-size-60"
                                       },
                                       [
-                                        _vm._v(
-                                          "\n                    Map here\n                  "
+                                        _c(
+                                          "GmapMap",
+                                          {
+                                            staticStyle: {
+                                              width: "500px",
+                                              height: "300px"
+                                            },
+                                            attrs: {
+                                              center: {
+                                                lat: business.lat,
+                                                lng: business.long
+                                              },
+                                              zoom: 7,
+                                              "map-type-id": "terrain"
+                                            }
+                                          },
+                                          [
+                                            _c("GmapMarker", {
+                                              key: _vm.index,
+                                              attrs: {
+                                                position: {
+                                                  lat: business.lat,
+                                                  lng: business.long
+                                                },
+                                                clickable: true,
+                                                draggable: true
+                                              }
+                                            })
+                                          ],
+                                          1
                                         )
-                                      ]
+                                      ],
+                                      1
                                     ),
                                     _vm._v(" "),
                                     _c(
