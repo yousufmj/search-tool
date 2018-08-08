@@ -91,7 +91,6 @@
                         style="width: 500px; height: 300px"
                         >
                         <GmapMarker
-                            :key="index"
                             :position="{lat:Number(business.lat), lng:Number(business.long)}"
                             :clickable="true"
                             :draggable="true"

@@ -85282,7 +85282,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['businessList'],
@@ -85554,7 +85553,6 @@ var render = function() {
                                               },
                                               [
                                                 _c("GmapMarker", {
-                                                  key: _vm.index,
                                                   attrs: {
                                                     position: {
                                                       lat: Number(business.lat),
