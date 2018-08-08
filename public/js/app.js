@@ -85557,8 +85557,8 @@ var render = function() {
                                                   key: _vm.index,
                                                   attrs: {
                                                     position: {
-                                                      lat: business.lat,
-                                                      lng: business.long
+                                                      lat: Number(business.lat),
+                                                      lng: Number(business.long)
                                                     },
                                                     clickable: true,
                                                     draggable: true

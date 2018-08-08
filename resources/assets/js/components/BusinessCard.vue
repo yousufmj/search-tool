@@ -92,7 +92,7 @@
                         >
                         <GmapMarker
                             :key="index"
-                            :position="{lat:business.lat, lng:business.long}"
+                            :position="{lat:Number(business.lat), lng:Number(business.long)}"
                             :clickable="true"
                             :draggable="true"
                         />
