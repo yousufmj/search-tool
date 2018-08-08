@@ -81,10 +81,22 @@
                 <hr>
 
                 <!-- Map and Contact -->
-                <md-card-area>
+                <md-card-area v-if="business.lat">
                   <div class="md-layout md-gutter">
                     <div class="md-layout-item md-size-60">
-                      Map here
+                      <GmapMap
+                        :center="{lat:Number(business.lat), lng:Number(business.long)}"
+                        :zoom="7"
+                        map-type-id="terrain"
+                        style="width: 500px; height: 300px"
+                        >
+                        <GmapMarker
+                            :key="index"
+                            :position="{lat:business.lat, lng:business.long}"
+                            :clickable="true"
+                            :draggable="true"
+                        />
+                        </GmapMap>
                     </div>
 
                     <!-- More info -->

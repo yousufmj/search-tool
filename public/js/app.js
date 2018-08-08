@@ -85523,242 +85523,263 @@ var render = function() {
                               _vm._v(" "),
                               _c("hr"),
                               _vm._v(" "),
-                              _c("md-card-area", [
-                                _c(
-                                  "div",
-                                  { staticClass: "md-layout md-gutter" },
-                                  [
+                              business.lat
+                                ? _c("md-card-area", [
                                     _c(
                                       "div",
-                                      {
-                                        staticClass: "md-layout-item md-size-60"
-                                      },
+                                      { staticClass: "md-layout md-gutter" },
                                       [
                                         _c(
-                                          "GmapMap",
+                                          "div",
                                           {
-                                            staticStyle: {
-                                              width: "500px",
-                                              height: "300px"
-                                            },
-                                            attrs: {
-                                              center: {
-                                                lat: business.lat,
-                                                lng: business.long
-                                              },
-                                              zoom: 7,
-                                              "map-type-id": "terrain"
-                                            }
+                                            staticClass:
+                                              "md-layout-item md-size-60"
                                           },
                                           [
-                                            _c("GmapMarker", {
-                                              key: _vm.index,
-                                              attrs: {
-                                                position: {
-                                                  lat: business.lat,
-                                                  lng: business.long
+                                            _c(
+                                              "GmapMap",
+                                              {
+                                                staticStyle: {
+                                                  width: "500px",
+                                                  height: "300px"
                                                 },
-                                                clickable: true,
-                                                draggable: true
-                                              }
-                                            })
+                                                attrs: {
+                                                  center: {
+                                                    lat: Number(business.lat),
+                                                    lng: Number(business.long)
+                                                  },
+                                                  zoom: 7,
+                                                  "map-type-id": "terrain"
+                                                }
+                                              },
+                                              [
+                                                _c("GmapMarker", {
+                                                  key: _vm.index,
+                                                  attrs: {
+                                                    position: {
+                                                      lat: business.lat,
+                                                      lng: business.long
+                                                    },
+                                                    clickable: true,
+                                                    draggable: true
+                                                  }
+                                                })
+                                              ],
+                                              1
+                                            )
                                           ],
                                           1
-                                        )
-                                      ],
-                                      1
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass: "md-layout-item md-size-40"
-                                      },
-                                      [
-                                        _c("div", [
-                                          business.email || business.telephone
-                                            ? _c("h3", [_vm._v("Contact Us")])
-                                            : _vm._e(),
-                                          _vm._v(" "),
-                                          business.email
-                                            ? _c("p", [
-                                                _c("strong", [
-                                                  _vm._v("Email: ")
-                                                ]),
-                                                _vm._v(
-                                                  "\n                        " +
-                                                    _vm._s(business.email) +
-                                                    "\n                      "
-                                                )
-                                              ])
-                                            : _vm._e(),
-                                          _vm._v(" "),
-                                          business.telephone
-                                            ? _c("p", [
-                                                _c("strong", [_vm._v("Tel:")]),
-                                                _vm._v(
-                                                  "\n                        " +
-                                                    _vm._s(business.telephone)
-                                                )
-                                              ])
-                                            : _vm._e()
-                                        ]),
+                                        ),
                                         _vm._v(" "),
-                                        business.monday
-                                          ? _c("div", [
-                                              _c("h3", [
-                                                _vm._v("Opening Hours")
-                                              ]),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "md-layout-item md-size-40"
+                                          },
+                                          [
+                                            _c("div", [
+                                              business.email ||
+                                              business.telephone
+                                                ? _c("h3", [
+                                                    _vm._v("Contact Us")
+                                                  ])
+                                                : _vm._e(),
                                               _vm._v(" "),
-                                              _c(
-                                                "p",
-                                                { staticClass: "opening" },
-                                                [
-                                                  _c("strong", [
-                                                    _vm._v("Monday:")
-                                                  ]),
-                                                  _vm._v(
-                                                    "\n                        " +
-                                                      _vm._s(business.monday) +
-                                                      "\n                      "
-                                                  )
-                                                ]
-                                              ),
+                                              business.email
+                                                ? _c("p", [
+                                                    _c("strong", [
+                                                      _vm._v("Email: ")
+                                                    ]),
+                                                    _vm._v(
+                                                      "\n                        " +
+                                                        _vm._s(business.email) +
+                                                        "\n                      "
+                                                    )
+                                                  ])
+                                                : _vm._e(),
                                               _vm._v(" "),
-                                              _c(
-                                                "p",
-                                                { staticClass: "opening" },
-                                                [
-                                                  _c("strong", [
-                                                    _vm._v("Tuesday:")
+                                              business.telephone
+                                                ? _c("p", [
+                                                    _c("strong", [
+                                                      _vm._v("Tel:")
+                                                    ]),
+                                                    _vm._v(
+                                                      "\n                        " +
+                                                        _vm._s(
+                                                          business.telephone
+                                                        )
+                                                    )
+                                                  ])
+                                                : _vm._e()
+                                            ]),
+                                            _vm._v(" "),
+                                            business.monday
+                                              ? _c("div", [
+                                                  _c("h3", [
+                                                    _vm._v("Opening Hours")
                                                   ]),
-                                                  _vm._v(
-                                                    "\n                        " +
-                                                      _vm._s(business.tuesday) +
-                                                      "\n                      "
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "p",
+                                                    { staticClass: "opening" },
+                                                    [
+                                                      _c("strong", [
+                                                        _vm._v("Monday:")
+                                                      ]),
+                                                      _vm._v(
+                                                        "\n                        " +
+                                                          _vm._s(
+                                                            business.monday
+                                                          ) +
+                                                          "\n                      "
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "p",
+                                                    { staticClass: "opening" },
+                                                    [
+                                                      _c("strong", [
+                                                        _vm._v("Tuesday:")
+                                                      ]),
+                                                      _vm._v(
+                                                        "\n                        " +
+                                                          _vm._s(
+                                                            business.tuesday
+                                                          ) +
+                                                          "\n                      "
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "p",
+                                                    { staticClass: "opening" },
+                                                    [
+                                                      _c("strong", [
+                                                        _vm._v("Wednesday:")
+                                                      ]),
+                                                      _vm._v(
+                                                        "\n                        " +
+                                                          _vm._s(
+                                                            business.wednesday
+                                                          ) +
+                                                          "\n                      "
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "p",
+                                                    { staticClass: "opening" },
+                                                    [
+                                                      _c("strong", [
+                                                        _vm._v("Thursday:")
+                                                      ]),
+                                                      _vm._v(
+                                                        "\n                        " +
+                                                          _vm._s(
+                                                            business.thursday
+                                                          ) +
+                                                          "\n                      "
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "p",
+                                                    { staticClass: "opening" },
+                                                    [
+                                                      _c("strong", [
+                                                        _vm._v("Friday:")
+                                                      ]),
+                                                      _vm._v(
+                                                        "\n                        " +
+                                                          _vm._s(
+                                                            business.friday
+                                                          ) +
+                                                          "\n                      "
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "p",
+                                                    { staticClass: "opening" },
+                                                    [
+                                                      _c("strong", [
+                                                        _vm._v("Saturday:")
+                                                      ]),
+                                                      _vm._v(
+                                                        "\n                        " +
+                                                          _vm._s(
+                                                            business.saturday
+                                                          ) +
+                                                          "\n                      "
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "p",
+                                                    { staticClass: "opening" },
+                                                    [
+                                                      _c("strong", [
+                                                        _vm._v("Sunday:")
+                                                      ]),
+                                                      _vm._v(
+                                                        "\n                        " +
+                                                          _vm._s(
+                                                            business.sunday
+                                                          ) +
+                                                          "\n                      "
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "p",
+                                                    { staticClass: "opening" },
+                                                    [
+                                                      _c("strong", [
+                                                        _vm._v("Bank Holidays:")
+                                                      ]),
+                                                      _vm._v(
+                                                        "\n                        " +
+                                                          _vm._s(
+                                                            business.bank_holiday
+                                                          ) +
+                                                          "\n                      "
+                                                      )
+                                                    ]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "p",
+                                                    { staticClass: "opening" },
+                                                    [
+                                                      _c("strong", [
+                                                        _vm._v("Monday:")
+                                                      ]),
+                                                      _vm._v(
+                                                        "\n                        " +
+                                                          _vm._s(
+                                                            business.monday
+                                                          ) +
+                                                          "\n                      "
+                                                      )
+                                                    ]
                                                   )
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "p",
-                                                { staticClass: "opening" },
-                                                [
-                                                  _c("strong", [
-                                                    _vm._v("Wednesday:")
-                                                  ]),
-                                                  _vm._v(
-                                                    "\n                        " +
-                                                      _vm._s(
-                                                        business.wednesday
-                                                      ) +
-                                                      "\n                      "
-                                                  )
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "p",
-                                                { staticClass: "opening" },
-                                                [
-                                                  _c("strong", [
-                                                    _vm._v("Thursday:")
-                                                  ]),
-                                                  _vm._v(
-                                                    "\n                        " +
-                                                      _vm._s(
-                                                        business.thursday
-                                                      ) +
-                                                      "\n                      "
-                                                  )
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "p",
-                                                { staticClass: "opening" },
-                                                [
-                                                  _c("strong", [
-                                                    _vm._v("Friday:")
-                                                  ]),
-                                                  _vm._v(
-                                                    "\n                        " +
-                                                      _vm._s(business.friday) +
-                                                      "\n                      "
-                                                  )
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "p",
-                                                { staticClass: "opening" },
-                                                [
-                                                  _c("strong", [
-                                                    _vm._v("Saturday:")
-                                                  ]),
-                                                  _vm._v(
-                                                    "\n                        " +
-                                                      _vm._s(
-                                                        business.saturday
-                                                      ) +
-                                                      "\n                      "
-                                                  )
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "p",
-                                                { staticClass: "opening" },
-                                                [
-                                                  _c("strong", [
-                                                    _vm._v("Sunday:")
-                                                  ]),
-                                                  _vm._v(
-                                                    "\n                        " +
-                                                      _vm._s(business.sunday) +
-                                                      "\n                      "
-                                                  )
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "p",
-                                                { staticClass: "opening" },
-                                                [
-                                                  _c("strong", [
-                                                    _vm._v("Bank Holidays:")
-                                                  ]),
-                                                  _vm._v(
-                                                    "\n                        " +
-                                                      _vm._s(
-                                                        business.bank_holiday
-                                                      ) +
-                                                      "\n                      "
-                                                  )
-                                                ]
-                                              ),
-                                              _vm._v(" "),
-                                              _c(
-                                                "p",
-                                                { staticClass: "opening" },
-                                                [
-                                                  _c("strong", [
-                                                    _vm._v("Monday:")
-                                                  ]),
-                                                  _vm._v(
-                                                    "\n                        " +
-                                                      _vm._s(business.monday) +
-                                                      "\n                      "
-                                                  )
-                                                ]
-                                              )
-                                            ])
-                                          : _vm._e()
+                                                ])
+                                              : _vm._e()
+                                          ]
+                                        )
                                       ]
                                     )
-                                  ]
-                                )
-                              ])
+                                  ])
+                                : _vm._e()
                             ],
                             1
                           )
