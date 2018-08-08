@@ -85547,7 +85547,7 @@ var render = function() {
                                                     lat: Number(business.lat),
                                                     lng: Number(business.long)
                                                   },
-                                                  zoom: 7,
+                                                  zoom: 20,
                                                   "map-type-id": "terrain"
                                                 }
                                               },
