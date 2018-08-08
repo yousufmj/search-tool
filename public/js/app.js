@@ -78285,7 +78285,7 @@ exports = module.exports = __webpack_require__(13)(false);
 
 
 // module
-exports.push([module.i, "\n.md-autocomplete[data-v-7cdae69f] {\n  background: white;\n}\n.md-input[data-v-7cdae69f] {\n  border-bottom: 1px solid #d5d5d5;\n}\n.pagination[data-v-7cdae69f] {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n  text-align: center;\n}\n.pagination li[data-v-7cdae69f] {\n    display: inline-block;\n    border: 1px solid #d5d5d5;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    margin-left: -1px;\n}\n.pagination li a[data-v-7cdae69f] {\n      padding: 0.5rem 0.75rem;\n      text-decoration: none;\n      position: relative;\n      display: block;\n      color: #0f1947;\n}\n.pagination .disabled[data-v-7cdae69f] {\n    background: #9b9b9b;\n    pointer-events: none;\n    cursor: default;\n    text-decoration: none;\n}\n.pagination .disabled a[data-v-7cdae69f] {\n      color: #eee;\n}\n.pagination .active[data-v-7cdae69f] {\n    background: #2669ce;\n}\n.pagination .active a[data-v-7cdae69f] {\n      color: #eee;\n}\n.pagination .info[data-v-7cdae69f] {\n    display: inline-block;\n    border: none !important;\n}\nlabel[data-v-7cdae69f] {\n  color: #a2a2a2;\n}\n", ""]);
+exports.push([module.i, "\n.autocomplete[data-v-7cdae69f] {\n  margin-bottom: 200px;\n}\n.md-input[data-v-7cdae69f] {\n  border-bottom: 1px solid #d5d5d5;\n}\n.pagination[data-v-7cdae69f] {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n  text-align: center;\n}\n.pagination li[data-v-7cdae69f] {\n    display: inline-block;\n    border: 1px solid #d5d5d5;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    margin-left: -1px;\n}\n.pagination li a[data-v-7cdae69f] {\n      padding: 0.5rem 0.75rem;\n      text-decoration: none;\n      position: relative;\n      display: block;\n      color: #0f1947;\n}\n.pagination .disabled[data-v-7cdae69f] {\n    background: #9b9b9b;\n    pointer-events: none;\n    cursor: default;\n    text-decoration: none;\n}\n.pagination .disabled a[data-v-7cdae69f] {\n      color: #eee;\n}\n.pagination .active[data-v-7cdae69f] {\n    background: #2669ce;\n}\n.pagination .active a[data-v-7cdae69f] {\n      color: #eee;\n}\n.pagination .info[data-v-7cdae69f] {\n    display: inline-block;\n    border: none !important;\n}\nlabel[data-v-7cdae69f] {\n  color: #a2a2a2;\n}\n", ""]);
 
 // exports
 
@@ -78688,6 +78688,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -78701,6 +78704,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         businesses: [],
         businessTitle: '',
         categories: [],
+        categoriesDetails: [],
         categoriesValue: null,
         pagination: {},
         meta: {}
@@ -78718,11 +78722,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
      * @param {string} url - url endpoint
      * @param {object} params - object containing search parameters
      */
-    fetchBusiness: function fetchBusiness(url, params) {
+    fetchBusiness: function fetchBusiness(url) {
       var _this = this;
 
       url = url || 'api/business';
-      if (!params) params = {};
+      var params = {};
 
       // declare search params
       params.query = this.state.businessTitle;
@@ -78767,8 +78771,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           Authorization: auth
         }
       }).then(function (response) {
-        var categories = response.data.data;
-        _this2.state.categories = categories.map(function (item) {
+        _this2.state.categoriesDetails = response.data.data;
+        _this2.state.categories = _this2.state.categoriesDetails.map(function (item) {
           return item.name;
         });
       }).catch(function (error) {
@@ -79070,53 +79074,6 @@ var render = function() {
                 expression: "state.businessTitle"
               }
             })
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "autocomplete" },
-          [
-            _c(
-              "md-autocomplete",
-              {
-                attrs: {
-                  "md-options": _vm.state.categories,
-                  "md-layout": "box",
-                  "md-dense": "",
-                  "md-term": "",
-                  "md-open-on-focus": false
-                },
-                on: {
-                  "md-changed": _vm.getCategories,
-                  "md-opened": _vm.getCategories
-                },
-                scopedSlots: _vm._u([
-                  {
-                    key: "md-autocomplete-empty",
-                    fn: function(ref) {
-                      var term = ref.term
-                      return [
-                        _vm._v(
-                          '\n            No Business matching "' +
-                            _vm._s(term) +
-                            '" were found\n          '
-                        )
-                      ]
-                    }
-                  }
-                ]),
-                model: {
-                  value: _vm.state.categoriesValue,
-                  callback: function($$v) {
-                    _vm.$set(_vm.state, "categoriesValue", $$v)
-                  },
-                  expression: "state.categoriesValue"
-                }
-              },
-              [_c("label", [_vm._v("Search Business")])]
-            )
           ],
           1
         ),

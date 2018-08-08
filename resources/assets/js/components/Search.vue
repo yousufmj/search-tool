@@ -11,25 +11,26 @@
                 v-on:input="fetchBusiness()"></md-input>
             </md-field>
 
-            <!-- categories -->
+            <!--
+              commenting out, restricted with time to research scout and eager loading
+              and relationships
+              categories
             <div class="autocomplete">
-          <!-- Autocomplete search -->
+
             <md-autocomplete
               @md-changed="getCategories"
               @md-opened="getCategories"
               v-model="state.categoriesValue"
               :md-options="state.categories"
-              md-layout="box"
-              md-dense
               md-term
               :md-open-on-focus="false">
               <template slot="md-autocomplete-empty" slot-scope="{ term }">
-                No Business matching "{{ term }}" were found
+                No Categories matching "{{ term }}" were found
               </template>
-              <label>Search Business</label>
+              <label>Pick category</label>
 
             </md-autocomplete>
-             </div>
+             </div>  -->
 
           <!-- Pagination -->
           <ul class="pagination">
@@ -71,9 +72,11 @@
 </template>
 
 <style lang="scss" scoped>
-.md-autocomplete {
-background: white;
-  }
+// Temp hack just because of autcomplete
+.autocomplete {
+  margin-bottom: 200px;
+}
+
 .md-input {
   border-bottom: 1px solid #d5d5d5;
 }
@@ -138,6 +141,7 @@ export default {
         businesses: [],
         businessTitle: '',
         categories: [],
+        categoriesDetails: [],
         categoriesValue: null,
         pagination: {},
         meta: {}
@@ -155,9 +159,9 @@ export default {
      * @param {string} url - url endpoint
      * @param {object} params - object containing search parameters
      */
-    fetchBusiness(url, params) {
+    fetchBusiness(url) {
       url = url || 'api/business';
-      if (!params) params = {};
+      const params = {};
 
       // declare search params
       params.query = this.state.businessTitle;
@@ -205,8 +209,8 @@ export default {
         }
       })
         .then(response => {
-          const categories = response.data.data;
-          this.state.categories = categories.map(item => item.name);
+          this.state.categoriesDetails = response.data.data;
+          this.state.categories = this.state.categoriesDetails.map(item => item.name);
         })
         .catch(error => {
           console.log(error.response);
