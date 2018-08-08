@@ -25,7 +25,7 @@ class BusinessTableSeeder extends Seeder
         foreach ($json as $business => $details) {
             $data = array(
                 "title" => $business,
-                "description" => $details[0]['Body'],
+                "description" => utf8_encode($details[0]['Body']),
                 "trip_advisor" => $details[0]['Trip Advisor ID'],
                 "location_quarter" => $details[0]['Quarter'],
                 "address1" => $details[0]['Address Line 1'],
