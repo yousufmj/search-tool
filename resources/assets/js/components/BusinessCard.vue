@@ -86,7 +86,7 @@
                     <div class="md-layout-item md-size-60">
                       <GmapMap
                         :center="{lat:Number(business.lat), lng:Number(business.long)}"
-                        :zoom="20"
+                        :zoom="12"
                         map-type-id="terrain"
                         style="width: 500px; height: 300px"
                         >
