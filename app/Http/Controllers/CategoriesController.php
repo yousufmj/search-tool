@@ -13,9 +13,14 @@ class CategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $Categories = Categories::paginate(20);
+
+        if ($request->has('perPage') && $request->get('perPage') == 'all') {
+            $Categories = Categories::all();
+        } else {
+            $Categories = Categories::paginate(20);
+        }
 
         return categoriesResource::collection($Categories);
 
