@@ -13,9 +13,13 @@ class BusinessController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $business = Business::search('test')->paginate(20)->load('categories');
+        $query = $request->has('query') ? $request->get('query') : '';
+        $perPage = $request->has('perPage') ? $request->get('perPage') : 20;
+
+        $business = Business::search($query)->paginate($perPage);
+        $business->load('categories');
 
         return BusinessResource::collection($business);
 

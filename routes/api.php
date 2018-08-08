@@ -41,18 +41,4 @@ Route::middleware('auth:api')->group(function () {
         Route::delete('/{id}', 'categoriesController@delete');
     });
 
-//Opening hours
-    Route::prefix('opening-hours')->group(function () {
-        //Get all
-        Route::get('/', 'OpeningHoursController@index');
-        //Get 1
-        Route::get('/{id}', 'OpeningHoursController@show');
-        //Create
-        Route::post('/create', 'OpeningHoursController@create');
-        //Edit
-        Route::put('/{id}', 'OpeningHoursController@edit');
-        //Delete
-        Route::delete('/{id}', 'OpeningHoursController@delete');
-    });
-
 });
